@@ -18,6 +18,6 @@ setwd("~/shiny_kappa)
 runApp()
 ```
 
-Current version of the app hosted and running on:
+## Current version of the app hosted and running on:
 
 [https://mpikoula.shinyapps.io/shiny_kappa/](https://mpikoula.shinyapps.io/shiny_kappa/)
