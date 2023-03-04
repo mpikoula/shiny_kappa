@@ -17,3 +17,7 @@ Or you can clone the git repository, then use `runApp()`:
 setwd("~/shiny_kappa)
 runApp()
 ```
+
+Current version of the app hosted and running on:
+
+[https://mpikoula.shinyapps.io/shiny_kappa/](https://mpikoula.shinyapps.io/shiny_kappa/)
