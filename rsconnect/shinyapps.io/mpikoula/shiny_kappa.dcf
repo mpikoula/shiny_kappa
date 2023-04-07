@@ -1,0 +1,14 @@
+name: shiny_kappa
+title: shiny_kappa
+username:
+account: mpikoula
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4283397
+bundleId: 7060888
+url: https://mpikoula.shinyapps.io/shiny_kappa/
+when: 1680856924.71072
+lastSyncTime: 1680856924.71073
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: README.md

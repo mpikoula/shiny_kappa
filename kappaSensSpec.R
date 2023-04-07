@@ -70,3 +70,17 @@ specificityfun = function(phi,sg,sens,spec){
   return(((1-phi)*sg*spec+phi*(1-sg)*(1-sens))/((1-phi)*sg+phi*(1-sg)))
   }
 }
+
+# Calculate maximum possible observed performance based on the kappa and observed values
+
+maxperfun = function(phi,sg,ssob,spob) {
+  # Set up two equation, two variables system matrices and solve:
+  a = phi*sg
+  b = (1-phi)*(1-sg)
+  c = (1-phi)*sg
+  d = (phi)*(1-sg)
+  A <- rbind(c(a, -b),
+            c(-d, c))
+  B <- c((a+b)*ssob-b, (c+d)*spob-d)
+  return(solve(A,B))
+}

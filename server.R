@@ -35,6 +35,8 @@ shinyServer(function(input, output, session) {
         data.frame(sensitivity=ss(),specificity=sp())
     })
     
+    phi_exp <- reactive({input$cases/(input$cases+input$controls)
+        })
     
     output$plot1 <- renderPlot({
         ggplot(selectedData(),aes(x=1-specificity,y=sensitivity))+
@@ -50,11 +52,13 @@ shinyServer(function(input, output, session) {
     })
     
     output$maxss <- renderText({
-        paste("Maximum observed sensitivity is:", signif(ss()[50], 2))
+        paste("Maximum observed sensitivity for this kappa value is:",
+              signif(maxperfun(phi_exp(),sgfun(phi_exp(),input$kappa),input$osens,input$ospec)[1],2))
     })
     
     output$maxsp <- renderText({
-        paste("Maximum observed specificity is:", signif(sp()[50], 2))
+        paste("Maximum observed specificity for this kappa value is:",
+              signif(maxperfun(phi_exp(),sgfun(phi_exp(),input$kappa),input$osens,input$ospec)[2],2))
     })
     
     
