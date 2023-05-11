@@ -41,9 +41,9 @@ shinyServer(function(input, output, session) {
     output$plot1 <- renderPlot({
         ggplot(selectedData(),aes(x=1-specificity,y=sensitivity))+
             geom_line(show.legend=FALSE,color=rgb(21/255,147/255,154/255,1))+
-            geom_point(aes(x=1-input$sens,y=input$spec),shape=15,color=rgb(255/255,108/255,95/255,1))+
+            geom_point(aes(x=1-input$spec,y=input$sens),shape=15,color=rgb(255/255,108/255,95/255,1))+
             {if ((!is.na(input$osens))&(!is.na(input$osens)))
-                 geom_point(aes(x=1-input$osens,y=input$ospec),shape=15,color=rgb(21/255,147/255,154/255,1))}+
+                 geom_point(aes(x=1-input$ospec,y=input$osens),shape=15,color=rgb(21/255,147/255,154/255,1))}+
             theme_minimal(base_size = 14)+
             theme(aspect.ratio = 1)+
             coord_cartesian(xlim=c(0,1), ylim=c(0,1))+
@@ -52,12 +52,12 @@ shinyServer(function(input, output, session) {
     })
     
     output$maxss <- renderText({
-        paste("Maximum observed sensitivity for this kappa value is:",
+        paste("Given the observed performance of this biomarker, if interrater reliability was perfect (Cohen's kappa = 1) we would expect the maximum observed sensitivity to be ",
               signif(maxperfun(phi_exp(),sgfun(phi_exp(),input$kappa),input$osens,input$ospec)[1],2))
     })
     
     output$maxsp <- renderText({
-        paste("Maximum observed specificity for this kappa value is:",
+        paste("Likewise, we would expect the maximum observed specificity to be:",
               signif(maxperfun(phi_exp(),sgfun(phi_exp(),input$kappa),input$osens,input$ospec)[2],2))
     })
     

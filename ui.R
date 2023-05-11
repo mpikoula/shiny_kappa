@@ -17,7 +17,7 @@ library(shiny)
             numericInput('sens', 'True Biomarker sensitivity', 1, min = 0, max = 1, step=0.005), # step needs to be half of desired (?bug)
             numericInput('spec', 'True Biomarker specificity', 1, min=0, max= 1, step=0.005),
             numericInput('kappa', 'kappa value', 0.5, min = 0, max = 1, step=0.005),
-            h3("Experimental values\n"),
+            h3("Observed performance for specific biomarker\n"),
             " ",
             numericInput('cases', 'Number of cases', NA, min = 0, step=1),
             numericInput('controls', 'Number of controls', NA, min=0, step=1),
