@@ -13,7 +13,7 @@ library(shinyBS)
 # Define UI for application.
 
     pageWithSidebar(
-        headerPanel("Upper bounds of sensitivity and specificity given Cohen's kappa"),
+        headerPanel("Observed performance curve given Cohen's kappa"),
         sidebarPanel(
             numericInput('sens', 'True Biomarker sensitivity', 1, min = 0, max = 1, step=0.005), # step needs to be half of desired (?bug)
             bsTooltip(id = "sens", title = "hypothetical value of true biomarker sensitivity"),
@@ -40,9 +40,12 @@ library(shinyBS)
                     
                   plotOutput('plot1'),
                   
+                  p("The blue line represents the observable performance curve (OPC), while the red dot represents the theoretical (unknown) true biomarker sensitivity and specificity"),
+        
                   conditionalPanel(
                     condition =  "input.osens !==  null && input.ospec!== null &&
                     input.cases > 0 && input.controls > 0",
+                    p("The observed performance of this biomarker is represented by the blue dot on the graph."),
                     textOutput("maxss"),
                     textOutput("maxsp")
                   )

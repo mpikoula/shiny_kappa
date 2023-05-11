@@ -52,7 +52,7 @@ shinyServer(function(input, output, session) {
     })
     
     output$maxss <- renderText({
-        paste("Given the observed performance of this biomarker, if interrater reliability was perfect (Cohen's kappa = 1) we would expect the maximum observed sensitivity to be ",
+        paste("Supposing interrater reliability was perfect (Cohen's kappa = 1) we would expect the maximum observed sensitivity to be ",
               signif(maxperfun(phi_exp(),sgfun(phi_exp(),input$kappa),input$osens,input$ospec)[1],2))
     })
     
