@@ -5,10 +5,10 @@ account: mpikoula
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4283397
-bundleId: 7060888
+bundleId: 7205131
 url: https://mpikoula.shinyapps.io/shiny_kappa/
-when: 1680856924.71072
-lastSyncTime: 1680856924.71073
+when: 1683820653.6527
+lastSyncTime: 1683820653.65271
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: README.md
