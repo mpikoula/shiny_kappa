@@ -41,6 +41,10 @@ library(shinyBS)
                   plotOutput('plot1'),
                   
                   p("The blue line represents the observable performance curve (OPC), while the red dot represents the theoretical (unknown) true biomarker sensitivity and specificity"),
+                  textOutput("equalpoint"),
+                  p("\n"),
+                  
+                  #Following is conditional on having filled in the observed performance panel:
         
                   conditionalPanel(
                     condition =  "input.osens !==  null && input.ospec!== null &&
